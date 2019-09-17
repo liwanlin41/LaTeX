@@ -1,0 +1,285 @@
+% Personal style package of Wanlin Li
+% Inspiration from v_Enhance and Jason Chen
+
+\ProvidesPackage{Robot}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{asymptote}
+\usepackage{enumitem}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\begin{asydef}
+	import olympiad;
+\end{asydef}
+
+\usepackage[top=3cm,
+	bottom=3.5cm,
+	left=3cm,
+	right=3cm,
+	headheight=17pt,
+	includehead,includefoot,
+	heightrounded,
+]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\addtolength{\textheight}{1.14cm}
+\setlength{\footskip}{0.5in}
+\setlength{\headsep}{10pt}
+\setlength{\parindent}{0pt}
+
+% colored box stuff
+\definecolor{paleblue}{RGB}{102,160,255}
+
+% pretty blue box for theorems
+\mdfdefinestyle{palebluebox}{
+	linecolor = blue!75,
+	backgroundcolor = paleblue!30,
+	roundcorner = 7pt,
+	linewidth = 2pt,
+}
+
+% pretty green box for lemmas
+\mdfdefinestyle{greenbox}{
+	linecolor = ForestGreen!80,
+	backgroundcolor = green!20,
+	roundcorner = 7pt,
+	linewidth = 1.5pt,
+}
+
+% pretty purple box?
+\mdfdefinestyle{purplebox}{
+	linecolor = Plum!80,
+	backgroundcolor = Fuchsia!20,
+	roundcorner = 7pt,
+	linewidth = 1.5pt,
+}
+
+% pretty red box
+\mdfdefinestyle{redbox}{
+	linecolor = red,
+	backgroundcolor = WildStrawberry!25,
+	roundcorner = 7pt,
+	linewidth = 1pt,
+	innerleftmargin = 3pt,
+	leftmargin = -4pt,
+	rightmargin = -4pt,
+}
+
+\rhead{Wanlin Li}
+
+%Options
+\newif\iflics\licsfalse
+\newif\iflipset\lipsetfalse
+
+\DeclareOption{cs}{\licstrue}
+\DeclareOption{pset}{\lipsettrue}
+
+\ProcessOptions*
+
+%shrink itemize bullets
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% modify right margin to center lists
+\setlist{leftmargin = .8cm, rightmargin=\leftmargin}
+
+\newenvironment{dit}[1]
+{\textbf{Definition.} \emph{#1:}}{}
+
+% make theorems look pretty
+% should be used outside list environments
+\newenvironment{thr}[1][Theorem]
+{\begin{center}
+\begin{minipage}{\textwidth - .5cm}
+\begin{mdframed}[style=palebluebox]
+\textbf{#1. }\ignorespaces}
+{\end{mdframed}
+\end{minipage}
+\end{center}
+}
+
+\newenvironment{pro}[1][Proposition]
+{\begin{center}
+\begin{minipage}{\textwidth - 1cm}
+\begin{mdframed}[style=greenbox]
+\textbf{#1. }\ignorespaces}
+{\end{mdframed}
+\end{minipage}
+\end{center}
+}
+
+% make lemmas look pretty too
+% use outside list environments
+\newenvironment{lem}[1][Lemma]
+{\begin{center}
+\begin{minipage}{\textwidth - 1cm}
+\begin{mdframed}[style=greenbox]
+\textbf{#1. }\ignorespaces}
+{\end{mdframed}
+\end{minipage}
+\end{center}
+}
+
+% pretty box for important things!
+% use inside list enviroment
+\newenvironment{key}
+{\begin{mdframed}[style=redbox]}
+{\end{mdframed}\vspace{-15pt}}
+
+\newcounter{ex}[subsection]
+\newenvironment{ex}[1][]{\refstepcounter{ex} \emph{Exercise~\theex. #1}}
+
+\newenvironment{pstate}[1]
+{\section*{#1}}
+{\newline \noindent\rule{\textwidth}{0.8pt}}
+
+\newcommand{\eg}{\emph{Example. }}
+\newcommand{\ceg}{\emph{Non-example. }}
+\newcommand{\sol}{\emph{Solution. }}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vphi}{\varphi}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclareMathOperator{\lcm}{lcm}
+
+\newcommand{\ce}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\hra}{\hookrightarrow}
+\newcommand{\ro}{\rightarrow}
+\newcommand{\Ro}{\Rightarrow}
+\newcommand{\lro}{\leftrightarrow}
+\newcommand{\llro}{\longleftrightarrow}
+\newcommand{\Lro}{\Leftrightarrow}
+\newcommand{\mo}{\mapsto}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\vmag}[1]{\parallel #1 \parallel} % vector magnitude
+
+%Pset options
+\iflipset
+	\newcounter{problem}
+	\newcommand{\Ps}[1]{\refstepcounter{problem}\section*{Problem \arabic{problem}: #1}}
+\fi
+
+%Geometry
+\newcommand{\mang}{\measuredangle}
+\newcommand{\oln}[1]{\overline{#1}}
+
+%Analysis
+\usepackage{esint}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\del}{\nabla}
+\newcommand{\cd}{\partial}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppd}[2]{\lp \pd{#1}{#2}\rp}
+\newcommand{\curl}{\text{curl }}
+\newcommand{\dvg}{\text{div }}
+\newcommand{\union}{\bigcup}
+\newcommand{\capcap}{\displaystyle\bigcap}
+\newcommand{\dint}{\displaystyle\int}
+
+%Combo
+\newcommand{\qbinom}[2]{\left[\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right]}
+
+%Algebra
+\newcommand{\im}{\text{im }}
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\tspan}{\text{span }}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\qed}{$\diamond$}
+\newcommand{\stab}{\text{stab}}
+\newcommand{\subgroup}{\trianglelefteq}
+
+%Physics
+\newcommand{\epsn}{\epsilon_0}
+
+%CS
+\iflics
+	\usepackage{cprotect}
+	\usepackage{listings}
+	\usepackage{courier}
+	\usepackage{tikz}
+
+	\definecolor{codepurple}{rgb}{0.58,0,0.82}
+	\definecolor{codegreen}{rgb}{0,0.6,0}
+	\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+
+	\lstdefinestyle{preferred}{
+		language=Python,
+		commentstyle=\color{codegreen},
+		keywordstyle=\color{blue},
+		numberstyle=\tiny\color{codegray},
+		stringstyle=\color{codepurple},
+		basicstyle=\footnotesize\ttfamily,
+		breakatwhitespace=false,
+		breaklines=true,
+		keepspaces=true,
+		numbers=left,
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		tabsize=4,
+	}
+	\lstset{style = preferred}
+
+	% make pretty algorithms
+	% use outside list environments
+	\newenvironment{alg}[1][Algorithm]
+	{\begin{center}
+	\begin{minipage}{\textwidth - 1cm}
+	\begin{mdframed}[style=purplebox]
+	\textbf{#1: }\ignorespaces}
+	{\end{mdframed}
+	\end{minipage}
+	\end{center}
+	}
+
+	% make pretty problems
+	% use outside list environments
+	\newenvironment{csprob}[1][Problem]
+	{\begin{center}
+	\begin{minipage}{\textwidth - 1cm}
+	\begin{mdframed}[style=palebluebox]
+	\textbf{#1: }\ignorespaces}
+	{\end{mdframed}
+	\end{minipage}
+	\end{center}
+	}
+
+	% make default tree
+	\newenvironment{heap}[1][1]
+	{\begin{tikzpicture}[sibling distance=6em, level distance = 4em,
+		every node/.style={shape=circle,draw,align=center},
+		scale = #1]}
+	{\end{tikzpicture}}
+\fi
+
+% font
+% use 11 point or else it looks quite weird
+\usepackage{tgschola}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=magenta,
+	urlcolor=blue,
+}
