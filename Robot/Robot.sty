@@ -69,6 +69,8 @@
 	innerleftmargin = 3pt,
 	leftmargin = -4pt,
 	rightmargin = -4pt,
+	skipabove = 20pt,
+	skipbelow = 20pt,
 }
 
 \rhead{Wanlin Li}
@@ -129,7 +131,7 @@
 % use inside list enviroment
 \newenvironment{key}
 {\begin{mdframed}[style=redbox]}
-{\end{mdframed}\vspace{-15pt}}
+{\end{mdframed}\vspace{-8pt}}
 
 \newcounter{ex}[subsection]
 \newenvironment{ex}[1][]{\refstepcounter{ex} \emph{Exercise~\theex. #1}}
@@ -150,6 +152,7 @@
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\HH}{\mathcal{H}}
+\newcommand{\pow}{\mathcal{P}}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\vphi}{\varphi}
 
@@ -172,7 +175,7 @@
 \newcommand{\mo}{\mapsto}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
-\newcommand{\vmag}[1]{\parallel #1 \parallel} % vector magnitude
+\newcommand{\vmag}[1]{||#1||} % vector magnitude
 
 %Pset options
 \iflipset
