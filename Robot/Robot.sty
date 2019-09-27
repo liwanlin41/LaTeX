@@ -52,6 +52,14 @@
 	linewidth = 1.5pt,
 }
 
+% yellow box
+\mdfdefinestyle{yellowbox}{
+	linecolor = Goldenrod,
+	backgroundcolor = GreenYellow!20,
+	roundcorner = 4pt,
+	linewidth = 1pt,
+}
+
 % pretty purple box?
 \mdfdefinestyle{purplebox}{
 	linecolor = Plum!80,
@@ -60,10 +68,11 @@
 	linewidth = 1.5pt,
 }
 
+
 % pretty red box
 \mdfdefinestyle{redbox}{
 	linecolor = red,
-	backgroundcolor = WildStrawberry!25,
+	backgroundcolor = WildStrawberry!30,
 	roundcorner = 7pt,
 	linewidth = 1pt,
 	innerleftmargin = 3pt,
@@ -71,6 +80,17 @@
 	rightmargin = -4pt,
 	skipabove = 20pt,
 	skipbelow = 20pt,
+}
+
+% orange box
+\mdfdefinestyle{orangebox}{
+	linecolor = orange,
+	backgroundcolor = Peach!20,
+	roundcorner = 7pt,
+	linewidth = 1pt,
+	innerleftmargin = 3pt,
+	leftmargin = -4pt,
+	rightmargin = -4pt,
 }
 
 \rhead{Wanlin Li}
@@ -127,11 +147,33 @@
 \end{center}
 }
 
+% quote box
+% use outside list environments
+\newcommand{\lecquote}[2]
+{\begin{center}
+\begin{minipage}{\textwidth - 1cm}
+\begin{mdframed}[style=yellowbox]
+``#2"
+
+\raggedleft
+\textit{--- #1}
+\end{mdframed}
+\end{minipage}
+\end{center}}
+
 % pretty box for important things!
 % use inside list enviroment
 \newenvironment{key}
 {\begin{mdframed}[style=redbox]}
 {\end{mdframed}\vspace{-8pt}}
+
+
+% combine important definitions
+% use inside list environment
+\newenvironment{cdit}[1]
+{\begin{mdframed}[style=orangebox]
+	\textbf{Definition.} \emph{#1:}}
+{\end{mdframed}\vspace{-15pt}}
 
 \newcounter{ex}[subsection]
 \newenvironment{ex}[1][]{\refstepcounter{ex} \emph{Exercise~\theex. #1}}
@@ -176,11 +218,25 @@
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
 \newcommand{\vmag}[1]{||#1||} % vector magnitude
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\ord}{\text{ord}}
 
 %Pset options
 \iflipset
 	\newcounter{problem}
 	\newcommand{\Ps}[1]{\refstepcounter{problem}\section*{Problem \arabic{problem}: #1}}
+
+	% make Turing machine description
+	% use outside list environment
+	\newenvironment{turing}
+	{\begin{center}
+	\begin{minipage}{\textwidth - 1cm}
+	\begin{mdframed}[style=purplebox]
+	``}
+	{\end{mdframed}
+	\end{minipage}
+	\end{center}
+	}
 \fi
 
 %Geometry
