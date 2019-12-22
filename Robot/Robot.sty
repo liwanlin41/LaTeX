@@ -56,7 +56,7 @@
 \mdfdefinestyle{yellowbox}{
 	linecolor = Goldenrod,
 	backgroundcolor = GreenYellow!20,
-	roundcorner = 4pt,
+	roundcorner = 7pt,
 	linewidth = 1pt,
 }
 
@@ -78,8 +78,6 @@
 	innerleftmargin = 3pt,
 	leftmargin = -4pt,
 	rightmargin = -4pt,
-	skipabove = 20pt,
-	skipbelow = 20pt,
 }
 
 % orange box
@@ -98,9 +96,11 @@
 %Options
 \newif\iflics\licsfalse
 \newif\iflipset\lipsetfalse
+\newif\iflimath\limathfalse
 
 \DeclareOption{cs}{\licstrue}
 \DeclareOption{pset}{\lipsettrue}
+\DeclareOption{math}{\limathtrue}
 
 \ProcessOptions*
 
@@ -112,6 +112,8 @@
 
 \newenvironment{dit}[1]
 {\textbf{Definition.} \emph{#1:}}{}
+
+\newcommand{\vocab}[1]{\textcolor{Lavender}{#1}}
 
 % make theorems look pretty
 % should be used outside list environments
@@ -165,7 +167,7 @@
 % use inside list enviroment
 \newenvironment{key}
 {\begin{mdframed}[style=redbox]}
-{\end{mdframed}\vspace{-8pt}}
+{\end{mdframed}\vspace{-12pt}}
 
 
 % combine important definitions
@@ -217,9 +219,11 @@
 \newcommand{\mo}{\mapsto}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
-\newcommand{\vmag}[1]{||#1||} % vector magnitude
+\newcommand{\vmag}[1]{\left|\left|#1\right|\right|} % vector magnitude
 \newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dprod}{\displaystyle\prod}
 \newcommand{\ord}{\text{ord}}
+\newcommand{\defeq}{\stackrel{def}{=}}
 
 %Pset options
 \iflipset
@@ -255,6 +259,9 @@
 \newcommand{\union}{\bigcup}
 \newcommand{\capcap}{\displaystyle\bigcap}
 \newcommand{\dint}{\displaystyle\int}
+\newcommand{\res}{\text{res}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\dlog}{\text{dlog }}
 
 %Combo
 \newcommand{\qbinom}[2]{\left[\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right]}
@@ -330,6 +337,17 @@
 		every node/.style={shape=circle,draw,align=center},
 		scale = #1]}
 	{\end{tikzpicture}}
+\fi
+
+% competition math options
+\iflimath
+	\usepackage{versions}
+	
+	% problem macro
+	\newcommand{\pr}[3]{
+	\processifversion{problems}{\item #1}
+	\processifversion{answers}{\item #2}
+	\processifversion{solutions}{\item #3}}
 \fi
 
 % font
