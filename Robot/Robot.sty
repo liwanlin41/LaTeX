@@ -35,6 +35,7 @@
 
 % colored box stuff
 \definecolor{paleblue}{RGB}{102,160,255}
+\definecolor{palepurple}{RGB}{217,125,245}
 
 % pretty blue box for theorems
 \mdfdefinestyle{palebluebox}{
@@ -64,6 +65,14 @@
 \mdfdefinestyle{purplebox}{
 	linecolor = Plum!80,
 	backgroundcolor = Fuchsia!20,
+	roundcorner = 7pt,
+	linewidth = 1.5pt,
+}
+
+% pale purple box
+\mdfdefinestyle{palepurplebox}{
+	linecolor = Plum!50,
+	backgroundcolor = palepurple!20,
 	roundcorner = 7pt,
 	linewidth = 1.5pt,
 }
@@ -149,6 +158,40 @@
 \end{center}
 }
 
+% corollaries
+\newenvironment{cor}[1][Corollary]
+{\begin{center}
+\begin{minipage}{\textwidth - 1cm}
+\begin{mdframed}[style=greenbox]
+\textbf{#1. }\ignorespaces}
+{\end{mdframed}
+\end{minipage}
+\end{center}
+}
+
+% proof box
+% use outside list environment
+\newenvironment{prf}[1][Proof]
+{\begin{center}
+%\begin{minipage}{\textwidth - 1cm}
+\begin{mdframed}[style=palepurplebox]
+\textit{#1. }\ignorespaces}
+{\end{mdframed}
+%\end{minipage}
+\end{center}
+}
+
+% summary box
+% use outside list environment
+\newenvironment{summary}[1][Key Points]
+{\begin{center}
+\begin{minipage}{\textwidth - .5cm}
+\begin{mdframed}[style=redbox]
+\textbf{#1. }\ignorespaces}
+{\end{mdframed}
+\end{minipage}
+\end{center}}
+
 % quote box
 % use outside list environments
 \newcommand{\lecquote}[2]
@@ -168,7 +211,6 @@
 \newenvironment{key}
 {\begin{mdframed}[style=redbox]}
 {\end{mdframed}\vspace{-12pt}}
-
 
 % combine important definitions
 % use inside list environment
@@ -195,7 +237,11 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\RP}{\mathbb{RP}}
+\newcommand{\PP}{\mathbb{P}}
 \newcommand{\HH}{\mathcal{H}}
+\newcommand{\AAA}{\mathbb{A}}
+\newcommand{\aaa}{\mathcal{A}}
+\newcommand{\OO}{\mathcal{O}}
 \newcommand{\pow}{\mathcal{P}}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\vphi}{\varphi}
@@ -211,7 +257,8 @@
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\hra}{\hookrightarrow}
-\newcommand{\ro}{\rightarrow}
+\newcommand{\ro}{\longrightarrow}
+\newcommand{\lo}{\longleftarrow}
 \newcommand{\Ro}{\Rightarrow}
 \newcommand{\lro}{\leftrightarrow}
 \newcommand{\llro}{\longleftrightarrow}
@@ -222,8 +269,10 @@
 \newcommand{\vmag}[1]{\left|\left|#1\right|\right|} % vector magnitude
 \newcommand{\dsum}{\displaystyle\sum}
 \newcommand{\dprod}{\displaystyle\prod}
+\newcommand{\num}{\text{\#}} % pretty pound
 \newcommand{\ord}{\text{ord}}
 \newcommand{\defeq}{\stackrel{def}{=}}
+\newcommand{\spec}{\text{Spec }}
 
 %Pset options
 \iflipset
