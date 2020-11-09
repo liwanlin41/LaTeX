@@ -72,7 +72,8 @@
 % pale purple box
 \mdfdefinestyle{palepurplebox}{
 	linecolor = Plum!50,
-	backgroundcolor = palepurple!20,
+	%backgroundcolor = palepurple!20,
+    backgroundcolor = white,
 	roundcorner = 7pt,
 	linewidth = 1.5pt,
 }
@@ -239,6 +240,7 @@
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\PP}{\mathbb{P}}
+\newcommand{\pr}{\mathcal{P}}
 \newcommand{\HH}{\mathcal{H}}
 \newcommand{\AAA}{\mathbb{A}}
 \newcommand{\aaa}{\mathcal{A}}
@@ -356,6 +358,7 @@
 		tabsize=4,
 	}
 	\lstset{style = preferred}
+	\lstset{literate={~} {$\sim$}{1}}
 
 	% make pretty algorithms
 	% use outside list environments
