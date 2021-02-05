@@ -12,6 +12,7 @@
 
 \usepackage[dvipsnames]{xcolor}
 \usepackage[framemethod=TikZ]{mdframed}
+\usepackage[most]{tcolorbox}
 
 \begin{asydef}
 	import olympiad;
@@ -179,6 +180,23 @@
 \textit{#1. }\ignorespaces}
 {\end{mdframed}
 %\end{minipage}
+\end{center}
+}
+
+% proof box, but with complete boxes
+% across page breaks
+\newenvironment{pagedprf}[1][Proof]
+{\begin{center}
+\begin{tcolorbox}[%
+    enhanced,
+    breakable,
+    frame hidden,
+    colback = white,
+    overlay broken = {
+        \draw[line width=1.5pt, Plum!50, rounded corners]
+        (frame.north west) rectangle (frame.south east);}]
+    \textit{#1. }\ignorespaces}
+{\end{tcolorbox}
 \end{center}
 }
 
