@@ -300,6 +300,9 @@
 	\newcounter{problem}
 	\newcommand{\Ps}[1]{\refstepcounter{problem}\section*{Problem \arabic{problem}: #1}}
 
+    % list collaborators
+    \newcommand{\collab}[1]{\textit{Collaborators: #1}}
+
 	% make Turing machine description
 	% use outside list environment
 	\newenvironment{turing}
@@ -377,6 +380,8 @@
 	}
 	\lstset{style = preferred}
 	\lstset{literate={~} {$\sim$}{1}}
+
+    \newcommand{\code}[1]{\lstinline{#1}}
 
 	% make pretty algorithms
 	% use outside list environments
