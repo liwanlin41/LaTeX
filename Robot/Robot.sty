@@ -192,8 +192,11 @@
     breakable,
     frame hidden,
     colback = white,
+    overlay unbroken = {
+        \draw[line width=1.5pt, Plum!50, rounded corners=7pt]
+        (frame.north west) rectangle (frame.south east);},
     overlay broken = {
-        \draw[line width=1.5pt, Plum!50, rounded corners]
+        \draw[line width=1.5pt, Plum!50, rounded corners=7pt]
         (frame.north west) rectangle (frame.south east);}]
     \textit{#1. }\ignorespaces}
 {\end{tcolorbox}
@@ -258,6 +261,7 @@
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\PP}{\mathbb{P}}
+\newcommand{\EE}{\mathbb{E}}
 \newcommand{\pr}{\mathcal{P}}
 \newcommand{\HH}{\mathcal{H}}
 \newcommand{\AAA}{\mathbb{A}}
@@ -298,10 +302,10 @@
 %Pset options
 \iflipset
 	\newcounter{problem}
-	\newcommand{\Ps}[1]{\refstepcounter{problem}\section*{Problem \arabic{problem}: #1}}
+	\newcommand{\Ps}[2][\refstepcounter{problem}\arabic{problem}]{\section*{Problem #1: #2}}
 
     % list collaborators
-    \newcommand{\collab}[1]{\textit{Collaborators: #1}}
+    \newcommand{\collab}[1]{\textit{Collaborators/sources: #1}}
 
 	% make Turing machine description
 	% use outside list environment
