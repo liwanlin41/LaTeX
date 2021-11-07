@@ -252,52 +252,7 @@
 \newcommand{\ceg}{\emph{Non-example. }}
 \newcommand{\sol}{\emph{Solution. }}
 
-\newcommand{\mc}[1]{\mathcal{#1}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\QQ}{\mathbb{Q}}
-\newcommand{\FF}{\mathbb{F}}
-\newcommand{\RP}{\mathbb{RP}}
-\newcommand{\PP}{\mathbb{P}}
-\newcommand{\EE}{\mathbb{E}}
-\newcommand{\pr}{\mathcal{P}}
-\newcommand{\HH}{\mathcal{H}}
-\newcommand{\AAA}{\mathbb{A}}
-\newcommand{\aaa}{\mathcal{A}}
-\newcommand{\OO}{\mathcal{O}}
-\newcommand{\pow}{\mathcal{P}}
-\newcommand{\eps}{\varepsilon}
-\newcommand{\vphi}{\varphi}
-
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\DeclareMathOperator{\lcm}{lcm}
-
-\newcommand{\ce}[1]{\left\lceil #1 \right\rceil}
-\newcommand{\fl}[1]{\left\lfloor #1 \right\rfloor}
-\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
-\newcommand{\ol}[1]{\overline{#1}}
-\newcommand{\lp}{\left(}
-\newcommand{\rp}{\right)}
-\newcommand{\hra}{\hookrightarrow}
-\newcommand{\ro}{\longrightarrow}
-\newcommand{\lo}{\longleftarrow}
-\newcommand{\Ro}{\Rightarrow}
-\newcommand{\lro}{\leftrightarrow}
-\newcommand{\llro}{\longleftrightarrow}
-\newcommand{\Lro}{\Leftrightarrow}
-\newcommand{\mo}{\mapsto}
-\newcommand{\la}{\langle}
-\newcommand{\ra}{\rangle}
-\newcommand{\vmag}[1]{\left|\left|#1\right|\right|} % vector magnitude
-\newcommand{\dsum}{\displaystyle\sum}
-\newcommand{\dprod}{\displaystyle\prod}
-\newcommand{\num}{\text{\#}} % pretty pound
-\newcommand{\ord}{\text{ord}}
-\newcommand{\defeq}{\stackrel{def}{=}}
-\newcommand{\spec}{\text{Spec }}
+\input{commands}
 
 %Pset options
 \iflipset
@@ -319,41 +274,6 @@
 	\end{center}
 	}
 \fi
-
-%Geometry
-\newcommand{\mang}{\measuredangle}
-\newcommand{\oln}[1]{\overline{#1}}
-
-%Analysis
-\usepackage{esint}
-\newcommand{\ddx}{\frac{d}{dx}}
-\newcommand{\del}{\nabla}
-\newcommand{\cd}{\partial}
-\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\ppd}[2]{\lp \pd{#1}{#2}\rp}
-\newcommand{\curl}{\text{curl }}
-\newcommand{\dvg}{\text{div }}
-\newcommand{\union}{\bigcup}
-\newcommand{\capcap}{\displaystyle\bigcap}
-\newcommand{\dint}{\displaystyle\int}
-\newcommand{\res}{\text{res}}
-\newcommand{\DD}{\mathbb{D}}
-\newcommand{\dlog}{\text{dlog }}
-
-%Combo
-\newcommand{\qbinom}[2]{\left[\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right]}
-
-%Algebra
-\newcommand{\im}{\text{im }}
-\newcommand{\st}{\text{ s.t. }}
-\newcommand{\tspan}{\text{span }}
-\newcommand{\tr}{\text{tr}}
-\newcommand{\qed}{$\diamond$}
-\newcommand{\stab}{\text{stab}}
-\newcommand{\subgroup}{\trianglelefteq}
-
-%Physics
-\newcommand{\epsn}{\epsilon_0}
 
 %CS
 \iflics
