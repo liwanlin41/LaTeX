@@ -27,12 +27,28 @@
 	heightrounded,
 ]{geometry}
 
+%Options
+\newif\iflics\licsfalse
+\newif\iflipset\lipsetfalse
+\newif\iflimath\limathfalse
+\newif\iflifancy\lifancytrue
+
+\DeclareOption{cs}{\licstrue}
+\DeclareOption{pset}{\lipsettrue}
+\DeclareOption{math}{\limathtrue}
+\DeclareOption{nofancy}{\lifancyfalse}
+
+\ProcessOptions*
+
 \usepackage{fancyhdr}
-\pagestyle{fancy}
 \addtolength{\textheight}{1.14cm}
 \setlength{\footskip}{0.5in}
 \setlength{\headsep}{10pt}
 \setlength{\parindent}{0pt}
+\iflifancy
+    \pagestyle{fancy}
+    \rhead{Wanlin Li}
+\fi
 
 % colored box stuff
 \definecolor{paleblue}{RGB}{102,160,255}
@@ -101,19 +117,6 @@
 	leftmargin = -4pt,
 	rightmargin = -4pt,
 }
-
-\rhead{Wanlin Li}
-
-%Options
-\newif\iflics\licsfalse
-\newif\iflipset\lipsetfalse
-\newif\iflimath\limathfalse
-
-\DeclareOption{cs}{\licstrue}
-\DeclareOption{pset}{\lipsettrue}
-\DeclareOption{math}{\limathtrue}
-
-\ProcessOptions*
 
 %shrink itemize bullets
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
@@ -355,8 +358,10 @@
 \usepackage{tgschola}
 
 \usepackage{hyperref}
-\hypersetup{
-	colorlinks=true,
-	linkcolor=magenta,
-	urlcolor=blue,
-}
+\iflifancy
+    \hypersetup{
+	    colorlinks=true,
+	    linkcolor=magenta,
+	    urlcolor=blue,
+    }
+\fi
